@@ -69,12 +69,12 @@ jobs:
         run: php artisan key:generate
 
       - name: Wait for MySQL
-        run: sleep 15
+        run: sleep 60  # Increased the wait time to ensure MySQL is ready
 
       - name: Create database
         run: |
           sudo apt-get install -y mysql-client
-          mysql -u root -proot -e "CREATE DATABASE IF NOT EXISTS laravel;"
+          mysql -h 127.0.0.1 -P 3306 -u root -proot -e "CREATE DATABASE IF NOT EXISTS laravel;"
 
       - name: Run migrations
         run: php artisan migrate --force
