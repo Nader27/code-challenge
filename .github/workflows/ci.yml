@@ -18,8 +18,7 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: laravel
-          MYSQL_USER: root
-          MYSQL_PASSWORD: root
+          # MYSQL_USER and MYSQL_PASSWORD are not needed for the root user
         ports:
           - 3306:3306
         options: >-
