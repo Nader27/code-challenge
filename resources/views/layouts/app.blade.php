@@ -10,39 +10,18 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Styles -->
     <style>
         body {
             font-family: 'Figtree', sans-serif;
             line-height: 1.6;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        .nav a {
-            color: #636b6f;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 10px;
-            border: 1px solid #636b6f;
-            border-radius: 5px;
-        }
-        .nav a:hover {
-            background-color: #636b6f;
-            color: #fff;
-        }
     </style>
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -60,9 +39,14 @@
     @endif
 
     <!-- Page Content -->
-    <main>
+    <main class="container">
         @yield('content')
     </main>
 </div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

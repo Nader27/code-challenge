@@ -1,6 +1,6 @@
 # Laravel API Project
 
-This is a Laravel project designed to provide a RESTful API for managing customers and services. The project is set up with authentication using Laravel Sanctum and includes automated testing and continuous integration using GitHub Actions.
+This is a Laravel project designed to provide a RESTful API for managing customers and services. The project includes authentication using Laravel Sanctum, automated testing with PHPUnit, and continuous integration using GitHub Actions.
 
 ## Features
 
@@ -8,22 +8,25 @@ This is a Laravel project designed to provide a RESTful API for managing custome
 - Authentication using Laravel Sanctum
 - Automated testing with PHPUnit
 - Continuous Integration (CI) with GitHub Actions
+- Dockerized environment for easy setup and deployment
 
 ## Requirements
 
-- PHP 8.3 or higher
+- PHP 8.2 or higher
 - Composer
 - MySQL
 - Node.js and npm (for frontend dependencies)
-- Git
+- Docker and Docker Compose
 
 ## Installation
+
+### Local Development Setup
 
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/your-username/your-repo-name.git
-    cd your-repo-name
+    git clone https://github.com/Nader27/code-challenge.git
+    cd code-challenge
     ```
 
 2. **Install dependencies**:
@@ -53,6 +56,7 @@ This is a Laravel project designed to provide a RESTful API for managing custome
 
     ```bash
     php artisan migrate
+    php artisan db:seed
     ```
 
 6. **Run the application**:
@@ -62,6 +66,42 @@ This is a Laravel project designed to provide a RESTful API for managing custome
     ```
 
    The application will be available at `http://localhost:8000`.
+
+### Docker Setup
+
+To run this project with Docker, follow these steps:
+
+1. **Build and Start the Containers**:
+
+    ```bash
+    docker-compose up --build -d
+    ```
+
+2. **Install Dependencies**:
+
+    ```bash
+    docker-compose exec app composer install
+    ```
+
+3. **Run Migrations**:
+
+    ```bash
+    docker-compose exec app php artisan migrate --force
+    ```
+
+4. **Seed the Database** (if applicable):
+
+    ```bash
+    docker-compose exec app php artisan db:seed
+    ```
+
+5. **Generate Application Key**:
+
+    ```bash
+    docker-compose exec app php artisan key:generate
+    ```
+
+Access the application at `http://localhost:8000`.
 
 ## Running Tests
 
